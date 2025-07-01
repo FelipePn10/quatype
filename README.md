@@ -1,8 +1,4 @@
-Perfeito, Felipe! Vou incrementar seu README com badges profissionais, links úteis e uma identidade visual simples para dar aquele toque corporativo e moderno.
-
----
-
-````markdown
+````
 # 🏥 Enterprise Patient Management System
 
 ![Java](https://img.shields.io/badge/Java-17+-blue?logo=java&style=for-the-badge)
