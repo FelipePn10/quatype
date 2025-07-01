@@ -1,4 +1,3 @@
-````
 # 🏥 Enterprise Patient Management System
 
 ![Java](https://img.shields.io/badge/Java-17+-blue?logo=java&style=for-the-badge)
