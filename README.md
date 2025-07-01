@@ -1,3 +1,4 @@
+
 # 🏥 Enterprise Patient Management System
 
 ![Java](https://img.shields.io/badge/Java-21+-blue?logo=java&style=for-the-badge)
@@ -9,19 +10,32 @@
 ![API Gateway](https://img.shields.io/badge/API_Gateway-springcloudsuccess?style=for-the-badge&logo=spring)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 
-Um sistema de gerenciamento de pacientes de **nível empresarial**, desenvolvido com foco em **alta escalabilidade, resiliência e segurança**, utilizando **arquitetura de microsserviços pronta para produção**.
+Sistema empresarial de gerenciamento de pacientes de alta escalabilidade, resiliência e segurança, construído com arquitetura de microsserviços pronta para produção.
 
 ---
 
 ## 🚀 Visão Geral
 
-Este sistema é composto por diversos microsserviços independentes e desacoplados que colaboram entre si para garantir:
+Este projeto desenvolve um ambiente completo de microsserviços usando **Java** e **Spring Boot**, executados via **Docker** com **PostgreSQL** para persistência e **Kafka** para comunicação orientada a eventos. A interação entre microsserviços é feita por meio de uma combinação eficiente de **REST**, **gRPC** e **mensageria Kafka**, garantindo escalabilidade e alta performance.
 
-- Alta **escalabilidade horizontal**.  
-- Comunicação **event-driven** com [Apache Kafka](https://kafka.apache.org/).  
-- APIs robustas usando **REST** e **gRPC**.  
-- Segurança com **autenticação baseada em tokens JWT**.  
-- Implantação em ambiente local e em nuvem usando [Docker](https://www.docker.com/).
+---
+
+## 🛠️ Ambiente de Desenvolvimento
+
+- Todos os microsserviços são executados localmente em containers Docker.  
+- Utilizamos imagens oficiais de PostgreSQL para banco de dados em containers, garantindo isolamento e facilidade de uso.  
+- Configuração integrada de comunicação entre serviços via REST, gRPC e Kafka, simulando um ambiente real e complexo.  
+- Esta infraestrutura local permite construir, testar e validar cada componente antes de avançar para produção.
+
+---
+
+## ☁️ Implantação Avançada e Infraestrutura como Código
+
+Após o desenvolvimento local, o projeto evolui para uma implantação robusta utilizando o **WES (Workload Execution Service)** com pilha local e práticas de infraestrutura como código.
+
+- Simulação de serviços de nuvem como ECS, RDS e API Gateways diretamente no ambiente local.  
+- Uso de serviços gerenciados WES, incluindo MSK (Kafka gerenciado), para replicar produção com custos reduzidos.  
+- Fluxo completo do desenvolvimento até a implantação na nuvem, preparando para ambientes reais e escaláveis.
 
 ---
 
@@ -41,7 +55,7 @@ Este sistema é composto por diversos microsserviços independentes e desacoplad
 ---
 
 ## 🧱 Arquitetura
-AINDA SERA ADICIONADO
+FUTURO
 ![Arquitetura do Sistema](https://raw.githubusercontent.com/seu-usuario/patient-enterprise-system/main/docs/architecture-diagram.png)
 
 Arquitetura modular e escalável baseada em microsserviços com comunicação síncrona e assíncrona, orquestrada via API Gateway.
@@ -79,11 +93,9 @@ Arquitetura modular e escalável baseada em microsserviços com comunicação s�
 ## 📂 Estrutura do Projeto
 
 ```
-AINDA SERA ADICIONADO
+FUTURO
 
 ```
-
----
 
 ## 📞 Contato
 
@@ -95,3 +107,4 @@ Para dúvidas, sugestões ou contribuições, abra uma issue ou envie um PR no G
 
 Este projeto está sob a licença [MIT](LICENSE).
 
+---
