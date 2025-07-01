@@ -1,6 +1,6 @@
 # 🏥 Enterprise Patient Management System
 
-![Java](https://img.shields.io/badge/Java-17+-blue?logo=java&style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-21+-blue?logo=java&style=for-the-badge)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.0-green?logo=springboot&style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-blue?logo=docker&style=for-the-badge)
 ![Kafka](https://img.shields.io/badge/Kafka-orange?logo=apachekafka&style=for-the-badge)
