@@ -12,6 +12,4 @@ import org.springframework.stereotype.Service;
 public class PatientService {
     private final PatientRepository patientRepository;
     private final PatientResponseDTO patientResponseDTO;
-
-
 }
