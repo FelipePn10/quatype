@@ -1,0 +1,3 @@
+### GET request to example server
+POST https://localhost:4000/api/v1/patients/create/patient
+###
