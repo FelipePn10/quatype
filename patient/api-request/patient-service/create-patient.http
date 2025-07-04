@@ -1,3 +1,12 @@
-### GET request to example server
+### Create a new patient entity
 POST https://localhost:4000/api/v1/patients/create/patient
+Content-Type: application/json
+
+{
+  "name": "John Dae",
+  "email": "test@example.com",
+  "address": "123 main street",
+  "dateOfBirth": "1995-09-09",
+  "registeredDate": "2024-11-28"
+}
 ###
