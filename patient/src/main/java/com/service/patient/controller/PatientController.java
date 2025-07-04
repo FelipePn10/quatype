@@ -19,7 +19,7 @@ public class PatientController {
     Logger logger = LoggerFactory.getLogger(PatientController.class);
     private final PatientService patientService;
 
-    @GetMapping
+    @GetMapping("/search/patients")
     public ResponseEntity<List<PatientResponseDTO>> getAllPatients() {
         logger.info("getAllPatients");
         List<PatientResponseDTO> list = patientService.getAllPatients();
@@ -27,7 +27,7 @@ public class PatientController {
         return ResponseEntity.ok().body(list);
     }
 
-    @PostMapping
+    @PostMapping("/create/patient")
     public ResponseEntity<PatientResponseDTO> createPatient(@Valid @RequestBody PatientRequestDTO patientRequestDTO) {
         logger.info("createPatient: patientRequestDTO={}", patientRequestDTO);
         PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
