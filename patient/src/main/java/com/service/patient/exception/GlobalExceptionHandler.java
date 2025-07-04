@@ -1,5 +1,7 @@
 package com.service.patient.exception;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,6 +12,7 @@ import java.util.Map;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidationException
@@ -19,6 +22,24 @@ public class GlobalExceptionHandler {
         ex.getBindingResult().getFieldErrors().forEach(
                 error -> errors.put(error.getField(), error.getDefaultMessage()));
 
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(EmailAlreadyExistsExecption.class)
+    public ResponseEntity<Map<String, String>> handleEmailAlreadyExistsExecption(
+            EmailAlreadyExistsExecption ex) {
+        log.warn("Email already exists {}", ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Email already exists " + ex.getMessage());
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(PatientNotFoundExecption.class)
+    public ResponseEntity<Map<String, String>> handlePatientNotFoundExecption(
+            PatientNotFoundExecption ex) {
+        log.warn("Patient not found {}", ex.getMessage());
+        Map<String, String> errors = new HashMap<>();
+        errors.put("message", "Patient not found " + ex.getMessage());
         return ResponseEntity.badRequest().body(errors);
     }
 }
