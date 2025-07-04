@@ -1,14 +1,14 @@
 package com.service.patient.controller;
 
+import com.service.patient.dto.request.PatientRequestDTO;
 import com.service.patient.dto.response.PatientResponseDTO;
 import com.service.patient.service.PatientService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +25,13 @@ public class PatientController {
         List<PatientResponseDTO> list = patientService.getAllPatients();
         logger.info("getAllPatients: list={}", list);
         return ResponseEntity.ok().body(list);
+    }
+
+    @PostMapping
+    public ResponseEntity<PatientResponseDTO> createPatient(@Valid @RequestBody PatientRequestDTO patientRequestDTO) {
+        logger.info("createPatient: patientRequestDTO={}", patientRequestDTO);
+        PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
+        logger.info("createPatient: patientResponseDTO={}", patientResponseDTO);
+        return ResponseEntity.ok().body(patientResponseDTO);
     }
 }
