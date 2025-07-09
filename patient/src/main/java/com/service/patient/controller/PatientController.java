@@ -2,8 +2,10 @@ package com.service.patient.controller;
 
 import com.service.patient.dto.request.PatientRequestDTO;
 import com.service.patient.dto.response.PatientResponseDTO;
+import com.service.patient.dto.validators.CreatePatientValidationGroup;
 import com.service.patient.service.PatientService;
 import jakarta.validation.Valid;
+import jakarta.validation.groups.Default;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -31,7 +33,9 @@ public class PatientController {
     }
 
     @PostMapping("/create/patient")
-    public ResponseEntity<PatientResponseDTO> createPatient(@Valid @RequestBody PatientRequestDTO patientRequestDTO) {
+    public ResponseEntity<PatientResponseDTO> createPatient(
+            @Validated({Default.class, CreatePatientValidationGroup.class})
+            @RequestBody PatientRequestDTO patientRequestDTO) {
         logger.info("createPatient: patientRequestDTO={}", patientRequestDTO);
         PatientResponseDTO patientResponseDTO = patientService.createPatient(patientRequestDTO);
         logger.info("createPatient: patientResponseDTO={}", patientResponseDTO);
@@ -41,7 +45,7 @@ public class PatientController {
     @PutMapping("/update/{id}/patient")
     public ResponseEntity<PatientResponseDTO> updatePatient(
             @PathVariable UUID id,
-            @Validated({Builder.Default.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
+            @Validated({Default.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
         logger.info("updatePatient: patientRequestDTO={}", patientRequestDTO);
         PatientResponseDTO patientResponseDTO = patientService.updatePatient(id, patientRequestDTO);
         logger.info("updatePatient: patientResponseDTO={}", patientResponseDTO);
