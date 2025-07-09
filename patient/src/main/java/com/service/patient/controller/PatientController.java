@@ -4,10 +4,12 @@ import com.service.patient.dto.request.PatientRequestDTO;
 import com.service.patient.dto.response.PatientResponseDTO;
 import com.service.patient.service.PatientService;
 import jakarta.validation.Valid;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,7 +41,7 @@ public class PatientController {
     @PutMapping("/update/{id}/patient")
     public ResponseEntity<PatientResponseDTO> updatePatient(
             @PathVariable UUID id,
-            @Valid @RequestBody PatientRequestDTO patientRequestDTO) {
+            @Validated({Builder.Default.class}) @RequestBody PatientRequestDTO patientRequestDTO) {
         logger.info("updatePatient: patientRequestDTO={}", patientRequestDTO);
         PatientResponseDTO patientResponseDTO = patientService.updatePatient(id, patientRequestDTO);
         logger.info("updatePatient: patientResponseDTO={}", patientResponseDTO);
