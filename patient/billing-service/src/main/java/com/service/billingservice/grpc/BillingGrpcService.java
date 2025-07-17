@@ -12,6 +12,8 @@ public class BillingGrpcService extends BillingServiceGrpc.BillingServiceImplBas
     private static final Logger logger = LoggerFactory.getLogger(BillingGrpcService.class);
     @Override
     public void createBillingAccount(billing.BillingRequest billingRequest,
+     /* StreamObserver é usado para gerenciar a comunicação assíncrona, permitindo que a resposta seja enviada e a comunicação finalizada */
+                                     // Verifica o ciclo de vida da mensagem, enviando erros, liberando recursos etc
                                      StreamObserver<billing.BillingResponse> responseObserver) {
         logger.info("createBillingAccount request={}", billingRequest.toString());
 

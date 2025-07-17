@@ -13,8 +13,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class BillingServiceGrpcClient {
     private  static final Logger logger = LoggerFactory.getLogger(BillingServiceGrpcClient.class);
-
-    //Encapsula as chamadas gRPC
     private final BillingServiceGrpc.BillingServiceBlockingStub blockingStub;
 
     // localhost:9001/BillingService/CreatePatientAccount
